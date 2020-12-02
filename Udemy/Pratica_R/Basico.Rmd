@@ -1,0 +1,38 @@
+---
+Curso Udemy Formação Cientista de dados Fernando Amaral
+CTRL+ALT+I e CTRL+ALT+ENTER
+---
+
+```{r}
+print("Hello word")
+```
+
+
+```{r}
+```
+Instalando pacotes
+
+```{r}
+install.packages("e1071")
+library(e1071)
+```
+Diretório de Trabalho
+```{r}
+getwd()
+setwd("C:\\Users\\ga_fi\\OneDrive\\Documentos\\Projetos\\DataScience\\Udemy\\Pratica_R")
+```
+Salvar
+```{r}
+iris-copia= iris
+save(iris-copia, file="iris-copia.Rdata")
+#remove
+rm(iris-copia)
+iris-copia
+```
+
+Verificar tipo de dado
+
+```{r}
+class(iris)
+```
+
