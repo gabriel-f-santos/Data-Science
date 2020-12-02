@@ -23,11 +23,11 @@ setwd("C:\\Users\\ga_fi\\OneDrive\\Documentos\\Projetos\\DataScience\\Udemy\\Pra
 ```
 Salvar
 ```{r}
-iris-copia= iris
-save(iris-copia, file="iris-copia.Rdata")
+iriscopia = iris
+save(iriscopia, file="iriscopia.Rdata")
 #remove
-rm(iris-copia)
-iris-copia
+rm(iriscopia)
+iriscopia
 ```
 
 Verificar tipo de dado
@@ -35,4 +35,17 @@ Verificar tipo de dado
 ```{r}
 class(iris)
 ```
+```{r}
+#carrega arquivo
+load(file="iriscopia.Rdata")
+iriscopia
+
+```
+Vetores
+```{r}
+x = c(12,34,56,79)
+y=c(1,6,9,14)
+plot(x,y)
+```
+
 
