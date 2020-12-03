@@ -47,5 +47,97 @@ x = c(12,34,56,79)
 y=c(1,6,9,14)
 plot(x,y)
 ```
+Vetores
+```{r}
+x=c(1,2,3,4,5,10)
+x[1]
+```
 
+Tipo inteiro = L
+```{r}
+Y=c(1L,2L,3L)
+v=c("a","b","c")
+```
+MAtri
+```{r}
+VADeaths
+colnames(VADeaths)
+rownames(VADeaths)
+VADeaths[,1]#todas as linhas e coluna 1.
+```
+Dataframe
+```{r}
+longley
+longley[,1:3]
+longley$Unemployed
+longley['Unemployed']
+```
+
+Funções
+```{r}
+head(x=iris,n=5)
+```
+Head e tail
+```{r}
+x=esoph
+head(x)
+tail(x,3)
+
+```
+```{r}
+dim(esoph)
+```
+```{r}
+length(islands)
+```
+```{r}
+summary(esoph)
+```
+Importações - 
+```{r}
+install.packages("xlsx") #excel
+#library(xlsx)
+```
+Texto
+```{r}
+x=read.csv(file.choose(), header=True, sep=",")
+#excel = read.xlsx("", seetIndex=1)
+```
+IF
+```{r}
+a=10
+b=20
+if (a < b){
+  print("verdadeiro")
+}else {
+  print("Falso")
+}
+```
+IFELSE
+```{r}
+a=10
+x = ifelse(a>10, "A é maior","A não é maior")
+x
+```
+For
+```{r}
+for (i in 1:10){print(i)}
+```
+while
+```{r}
+a=1
+while(a<=10){
+  print(a)
+  a=a+1
+}
+```
+Função
+```{r}
+parouimpar <- function(x) {
+  return(ifelse(x%%2==0,"par","impar"))
+  
+}
+parouimpar(4)
+
+```
 
