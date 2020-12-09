@@ -72,5 +72,174 @@ hist(dados$Salario, outline=F)
 
 ```
 Continuando - Limp. parte 1.
+Valore faltantes 
+```{r}
+dados[!complete.cases(dados),]
+```
+Salários
+```{r}
+#tratar salários
+summary(dados$Salario)
+```
+Mediana
+```{r}
+#Ver mediana
+median(dados$Salario,na.rm = T)
+```
+
+```{r}
+dados[is.na(dados$Salario)]$Salario =median(dados$Salario,na.rm = T)
+
+dados[!complete.cases(dados$Salario),]
+```
+Falta de padronização em Gênero
+
+```{r}
+#Transforma F e Fem em Feminino e o mesmo p Masculino
+dados[is.na(dados$Genero) | dados$Genero=="M",]$Genero="Masculino"
+
+dados[dados$Genero=="F" | dados$Genero=="Fem",]$Genero="Feminino"
+```
+
+
+```{r}
+#Ver Valores
+unique(dados$Genero)
+summary(dados$Genero)
+
+```
+```{r}
+#Remover dados levels usados
+dados$Genero = factor(dados$Genero)
+```
+
+IDADE FORA DO DOMINIO
+```{r}
+summary(dados$Idade)
+dados[dados$Idade<0 | dados$Idade>110 ,]$Idade
+#NA
+dados[is.na(dados$Idade),]
+#preenche com mediana
+median(dados$Idade)
+#substituição
+dados[dados$Idade<0 | dados$Idade>110,]$Idade = median(dados$Idade)
+
+dados[dados$Idade<0 | dados$Idade>110 ,]$Idade
+summary(dados$Idade)
+```
+Dados duplicados
+```{r}
+#Buscar duplicados por ID
+x = dados[duplicated(dados$ID),]
+x
+```
+
+
+```{r}
+dados = dados[-c(82),]
+#Buscamos a linha duplicada
+dados[dados$Id==x$Id, ]
+#Verificamos novamente duplicados
+x=dados[duplicated(dados$Id),]
+x
+
+```
+Estado fora do dominio
+```{r}
+unique(dados$Estado)
+summary(dados$Estado)
+
+dados[!dados$Estado %in% c("RS", "SC", "PR"),]$Estado = "RS"
+
+summary(dados$Estado)
+
+dados$Estado = factor(dados$Estado)
+
+summary(dados$Estado)
+```
+Outliers
+```{r}
+desv = sd(dados$Salario, na.rm=T)
+desv
+dados[dados$Salario >=2 *desv,]$Salario
+
+boxplot(dados$Salario)
+
+x=boxplot(dados$Salario)$out
+x
+
+median(dados$Salario)
+dados[dados$Salario >= 2*desv,]$Salario = median(dados$Salario)
+
+dados[dados$Salario>=2*desv,]$Salario
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
